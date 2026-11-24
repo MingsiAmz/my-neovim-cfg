@@ -19,6 +19,7 @@ return {
 
   {
     "DrKJeff16/project.nvim",
+    after = "nvim-telescope/telescope.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
     config = function()
       require("plugins.configs.project")
@@ -39,5 +40,5 @@ return {
         require("plugins.configs.vim-visual-multi") 
     end,
   }
-}
 
+}
