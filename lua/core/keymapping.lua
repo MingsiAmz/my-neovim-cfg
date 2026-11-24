@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 local map = vim.keymap
 
 -- visual move selected block
@@ -29,7 +28,7 @@ map.set("i", "<C-p>", "<C-o>k", { desc = "Insert: move up" })
 map.set("i", "<C-n>", "<C-o>j", { desc = "Insert: move down" })
 map.set("i", "<C-b>", "<Left>", { desc = "Insert: left" })
 map.set("i", "<C-f>", "<Right>", { desc = "Insert: right" })
-map.set("i", "<C-S-b>",  "<C-o>b", { desc = "Insert: prev word" })
+map.set("i", "<C-S-b>", "<C-o>b", { desc = "Insert: prev word" })
 map.set("i", "<C-S-f>", "<C-o>w", { desc = "Insert: next word" })
 map.set("i", "<C-d>", "<Del>", { desc = "Delete char after cursor" })
 map.set("i", "<C-S-d>", "<C-o>dw", { desc = "Insert: delete to end of word" })
@@ -37,6 +36,8 @@ map.set("i", "<C-S-BS>", "<C-o>dB", { desc = "Insert: delete previous word" })
 
 map.set("n", "<leader>tf", "<cmd>NvimTreeOpen<cr>")
 map.set("n", "B", "ge", { desc = "Prev word end" })
+map.set("n", "<C-f>", "<Right>", { desc = "Insert: right" })
+map.set("n", "<C-b>", "<Left>", { desc = "Insert: left"})
 
 -- current file path copy 
 map.set("n", "<leader>np", "<cmd>:let @+=expand('%:p')<cr>")
