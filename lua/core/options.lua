@@ -1,7 +1,9 @@
 local opt = vim.opt
+
 -- line number
 opt.relativenumber = true
 opt.number = true
+
 -- tab size
 opt.tabstop = 4
 opt.shiftwidth = 4
