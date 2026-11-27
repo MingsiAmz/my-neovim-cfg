@@ -62,8 +62,6 @@ return {
 			vim.notify("未在 PATH 中找到 jdtls，请检查系统环境变量", vim.log.levels.WARN)
 		end
 
-        vim.cmd("LspStart")
-
 		vim.diagnostic.config({
 			virtual_text = {
 				severity = { min = vim.diagnostic.severity.ERROR },
