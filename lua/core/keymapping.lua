@@ -12,8 +12,11 @@ map.set("n", "<leader>nt", "<cmd>tabnew<cr>", { silent = true })
 map.set("n", "<leader>ct", "<cmd>tabclose<cr>", { silent = true})
 
 -- check project
-map.set("n", "<leader>pp", "<cmd>Telescope projects<cr>", { desc = "Projects" })
-map.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { silent = true})
+map.set("n", "<leader>tp", "<cmd>Telescope projects<cr>", { silent = true })
+map.set("n", "<leader>tf", "<cmd>Telescope find_files<cr>", { silent = true})
+map.set("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", { silent = true })
+map.set("n", "<leader>tb", "<cmd>Telescope buffers<cr>", { silent = true })
+map.set("n", "<leader>td", "<cmd>Telescope file_browser<cr>", { silent = true })
 
 -- scale font size
 map.set("n", "<C-=>", function() vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1 end)

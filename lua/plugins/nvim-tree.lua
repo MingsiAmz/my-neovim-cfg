@@ -15,6 +15,6 @@ return {
     respect_buf_cwd = true,
   },
   keys = {
-    { "<leader>tf", "<cmd>NvimTreeOpen<cr>", silent = true}
+    { "<leader>ff", "<cmd>NvimTreeOpen<cr>", silent = true}
   }
 }
