@@ -5,12 +5,22 @@ return {
 		"williamboman/mason-lspconfig",
 	},
     
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
+    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate", "MasonLog" },
 	opts = {},
 
 	config = function(_, opts)
 		require("mason").setup(opts)
 		local registry = require("mason-registry")
+
+		-- 所有 LSP 服务器统一使用 blink 的补全能力；格式化交给 stylua，关闭 LSP 格式化
+		vim.lsp.config("*", {
+			capabilities = require("blink.cmp").get_lsp_capabilities(),
+			on_attach = function(client)
+				client.server_capabilities.documentFormattingProvider = false
+				client.server_capabilities.documentRangeFormattingProvider = false
+			end,
+		})
 
 		local function setup(name, config)
 			local success, package = pcall(registry.get_package, name)
@@ -42,19 +52,12 @@ return {
 			["css-lsp"] = {},
 			["typescript-language-server"] = {},
 			["emmet-ls"] = {},
+			["vue-language-server"] = {},
 		}
 
 		for server, config in pairs(servers) do
 			setup(server, config)
 		end
-
-		vim.lsp.config("*", {
-			capabilities = require("blink.cmp").get_lsp_capabilities(),
-			on_attach = function(client)
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.documentRangeFormattingProvider = false
-			end,
-		})
 
 		if vim.fn.executable("jdtls") == 1 then
 			vim.lsp.enable("jdtls")
